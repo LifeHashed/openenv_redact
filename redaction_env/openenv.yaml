@@ -1,7 +1,17 @@
 spec_version: 1
 name: redaction_env
-type: space
+type: environment
 runtime: fastapi
-app: server.app:app
+app: redaction_env.server.app:app
 port: 8000
+tasks:
+  - id: redaction_easy
+    name: "Redaction Easy Tier"
+    grader: redaction_env.graders:GraderDataset
+  - id: redaction_medium
+    name: "Redaction Medium Tier"
+    grader: redaction_env.graders:GraderDataset
+  - id: redaction_hard
+    name: "Redaction Hard Tier"
+    grader: redaction_env.graders:GraderDataset
 
